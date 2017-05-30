@@ -12,14 +12,24 @@ export class ServersComponent implements OnInit {
     
   } 
 
-  somestring:string='';
+  //somestring:string='';
+
+  testarr :any[] =[];
 
   ngOnInit() {
 
-    console.log(this.dataservices.cars);
+   // console.log(this.dataservices.cars);
 
-    this.somestring = this.dataservices.mydata();
+    //this.somestring = this.dataservices.mydata();
 
+    this.dataservices.mydata().subscribe(
+      (data)=>{
+       this.testarr.push(data);
+   console.log(this.testarr);
+    },
+    (error)=>{
+    console.log(error);
+    });
 
   }
 
